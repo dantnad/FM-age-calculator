@@ -11,8 +11,6 @@
   --font-regular: '400';
   --font-bold: '700';
   --font-black: '800';
-  --break-mobile: 375px;
-  --break-desktop: 1440px;
 }
 
 * {

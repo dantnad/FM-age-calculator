@@ -1,3 +1,4 @@
+import breakpoints from "../../breakpoints";
 import styled from "styled-components";
 
 export default styled.div`
@@ -6,8 +7,8 @@ export default styled.div`
   gap: 1rem;
   padding: 3rem;
   border-radius: 2% 2% 30% 2%;
+  width: 100vw;
   background-color: var(--color-white, white);
-  width: clamp(10rem, 50rem, 50rem);
 
   > .input-group {
     display: flex;
@@ -15,5 +16,14 @@ export default styled.div`
     justify-content: start;
     align-items: start;
     gap: 1rem;
+  }
+
+  > hr {
+    border: 1px solid var(--color-light-grey, black);
+    margin: 1rem 0;
+  }
+
+  @media ${breakpoints.tablet} {
+    width: clamp(30rem, 80vw, 50rem);
   }
 `;

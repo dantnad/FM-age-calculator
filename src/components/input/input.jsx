@@ -1,12 +1,17 @@
+import breakpoints from "../../breakpoints";
 import styled from "styled-components";
 
 const Input = styled.input`
-  font-size: var(--fontsize-input, 1rem);
   font-weight: 700;
-  width: 10rem;
+  font-size: var(--fontsize-input, 1rem);
+  width: 100%;
   border-radius: 15px;
   border: 0.2px solid var(--color-smoke-grey, black);
   padding: 1rem;
+
+  @media ${breakpoints.tablet} {
+    width: 10rem;
+  }
 `;
 
 const Label = styled.label`
@@ -17,11 +22,11 @@ const Warning = styled.p`
   color: var(--color-error, red);
 `;
 
-const Component = ({ label, value, onChange, warning, className }) => {
+const Component = ({ name, label, value, onChange, warning, className }) => {
   return (
     <div className={className}>
       <Label>{label.toUpperCase()}</Label>
-      <Input type='number' value={value} onChange={onChange} />
+      <Input name={name} type='number' value={value} onChange={onChange} />
       {warning && <Warning>{warning}</Warning>}
     </div>
   );
