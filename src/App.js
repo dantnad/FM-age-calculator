@@ -22,7 +22,7 @@ function App() {
             }}
             min={1}
             max={31}
-            warning='Invalid day'
+            warning={(day > 31 || day < 1) && "Invalid day"}
           />
           <Input
             label='month'
@@ -32,7 +32,7 @@ function App() {
             }}
             min={1}
             max={12}
-            // warning='Invalid month'
+            warning={(month > 12 || day < 1) && "Invalid month"}
           />
           <Input
             label='year'
@@ -40,7 +40,7 @@ function App() {
             onChange={(event) => {
               setYear(event.target.value);
             }}
-            warning=''
+            warning={year > today.getFullYear() && "Invalid year"}
           />
         </div>
         <hr />
