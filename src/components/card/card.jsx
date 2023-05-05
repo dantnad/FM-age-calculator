@@ -7,7 +7,8 @@ export default styled.div`
   gap: 1rem;
   padding: 3rem;
   border-radius: 2% 2% 30% 2%;
-  width: 100vw;
+  width: 80vw;
+  margin: 0 auto;
   background-color: var(--color-white, white);
 
   > .input-group {

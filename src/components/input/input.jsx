@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const Input = styled.input`
   font-weight: 700;
-  font-size: var(--fontsize-input, 1rem);
   width: 100%;
+  font-size: 1rem;
   border-radius: 15px;
   border: 0.2px solid var(--color-smoke-grey, black);
   padding: 1rem;
 
   @media ${breakpoints.tablet} {
+    font-size: var(--fontsize-input, 1rem);
     width: 10rem;
   }
 `;

@@ -9,17 +9,15 @@ function App() {
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [year, setYear] = useState(today.getFullYear());
   const [warning, setWarning] = useState("");
+
   const birthDate = new Date(year, month - 1, day);
+
   const ageinms = today.getTime() - birthDate.getTime();
   const age = {
     years: Math.floor(ageinms / (1000 * 60 * 60 * 24 * 365)),
     months: Math.floor(((ageinms / (1000 * 60 * 60 * 24)) % 365) / 30),
     days: Math.floor(((ageinms / (1000 * 60 * 60 * 24)) % 365) % 30),
   };
-
-  if (birthDate > today) {
-    setWarning("You are not born yet");
-  }
 
   return (
     <div className='App'>

@@ -1,3 +1,4 @@
+import breakpoints from "../../breakpoints";
 import styled from "styled-components";
 
 const Result = ({ amount, unit, className }) => {
@@ -13,10 +14,9 @@ export default styled(Result)`
   display: flex;
   flex-direction: row;
   align-items: baseline;
-
+  font-size: 3rem;
   margin: 0;
   gap: 7px;
-  font-size: var(--fontsize-result, 6rem);
   font-weight: var(--font-black);
   font-style: italic;
 
@@ -26,6 +26,12 @@ export default styled(Result)`
 
   h3 {
     color: var(--color-off-black, black);
-    font-size: calc(var(--fontsize-result, 6rem) * 1.4);
+  }
+
+  @media ${breakpoints.tablet} {
+    font-size: var(--fontsize-result, 6rem);
+    h3 {
+      font-size: calc(var(--fontsize-result, 6rem) * 1.4);
+    }
   }
 `;
