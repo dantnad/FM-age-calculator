@@ -7,9 +7,10 @@
   --color-smoke-grey: hsl(0, 1%, 44%);
   --color-off-black: hsl(0, 0%, 8%);
   --fontsize-input: 32px;
+  --fontsize-result: 60px;
   --font-regular: '400';
   --font-bold: '700';
-  --font-black: '800i';
+  --font-black: '800';
   --break-mobile: 375px;
   --break-desktop: 1440px;
 }
@@ -20,6 +21,23 @@
   padding: 0;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body{
+  height: 100vh;
+  background-color: var(--color-off-white);
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
