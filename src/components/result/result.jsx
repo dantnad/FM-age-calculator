@@ -15,6 +15,7 @@ export default styled(Result)`
   align-items: baseline;
 
   margin: 0;
+  gap: 7px;
   font-size: var(--fontsize-result, 6rem);
   font-weight: var(--font-black);
   font-style: italic;
@@ -25,5 +26,6 @@ export default styled(Result)`
 
   h3 {
     color: var(--color-off-black, black);
+    font-size: calc(var(--fontsize-result, 6rem) * 1.4);
   }
 `;

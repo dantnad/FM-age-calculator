@@ -9,6 +9,12 @@ function App() {
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [year, setYear] = useState(today.getFullYear());
   const birthDate = new Date(year, month - 1, day);
+  const ageinms = today.getTime() - birthDate.getTime();
+  const age = {
+    years: Math.floor(ageinms / (1000 * 60 * 60 * 24 * 365)),
+    months: Math.floor(((ageinms / (1000 * 60 * 60 * 24)) % 365) / 30),
+    days: Math.floor(((ageinms / (1000 * 60 * 60 * 24)) % 365) % 30),
+  };
 
   return (
     <div className='App'>
@@ -32,7 +38,7 @@ function App() {
             }}
             min={1}
             max={12}
-            warning={(month > 12 || day < 1) && "Invalid month"}
+            warning={(month > 12 || month < 1) && "Invalid month"}
           />
           <Input
             label='year'
@@ -45,9 +51,9 @@ function App() {
         </div>
         <hr />
         <div>
-          <Result unit='years' amount={0} />
-          <Result unit='months' amount={0} />
-          <Result unit='days' amount={0} />
+          <Result unit='years' amount={age.years} />
+          <Result unit='months' amount={age.months} />
+          <Result unit='days' amount={age.days} />
         </div>
       </Card>
     </div>
