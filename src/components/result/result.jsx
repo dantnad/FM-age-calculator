@@ -1,10 +1,13 @@
+import CountUp from "react-countup";
 import breakpoints from "../../breakpoints";
 import styled from "styled-components";
 
 const Result = ({ amount, unit, className }) => {
   return (
     <div className={className}>
-      <h2>{amount}</h2>
+      <h2>
+        <CountUp end={amount} />
+      </h2>
       <h3>{unit}</h3>
     </div>
   );
