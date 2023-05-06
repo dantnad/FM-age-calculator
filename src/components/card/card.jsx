@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export default styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 1rem;
   padding: 3rem;
@@ -11,20 +12,16 @@ export default styled.div`
   margin: 0 auto;
   background-color: var(--color-white, white);
 
-  > .input-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-    gap: 1rem;
-  }
-
   > hr {
     border: 1px solid var(--color-light-grey, black);
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
 
   @media ${breakpoints.tablet} {
     width: clamp(30rem, 80vw, 50rem);
+
+    > hr {
+      margin: 1rem 0;
+    }
   }
 `;

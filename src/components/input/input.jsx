@@ -17,6 +17,7 @@ const Input = styled.input`
 
 const Label = styled.label`
   letter-spacing: 0.4rem;
+  font-size: 1rem;
 `;
 
 const Warning = styled.p`
