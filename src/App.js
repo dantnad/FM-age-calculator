@@ -53,10 +53,13 @@ function App() {
   // Calculate the age of the user when the form is submitted
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateDays(day, month, year)
-      ? setWarning("")
-      : setWarning("Invalid date");
-    calculateAge();
+    if (validateDays(day, month, year)) {
+      setWarning("");
+      calculateAge();
+    } else {
+      setWarning("Invalid date");
+      return;
+    }
   };
 
   return (
