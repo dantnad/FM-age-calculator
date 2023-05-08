@@ -6,17 +6,37 @@ import Result from "./components/result/result";
 import { useState } from "react";
 
 function App() {
+  // Initial setup for the date input & warnings
   const today = new Date();
   const [day, setDay] = useState(today.getDate());
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [year, setYear] = useState(today.getFullYear());
   const [{ years, months, days }, setAge] = useState({
-    years: 0,
-    months: 0,
-    days: 0,
+    years: "--",
+    months: "--",
+    days: "--",
   });
   const [warning, setWarning] = useState("");
 
+  // Validate the days of the month
+  const validateDays = (day, month, year) => {
+    const daysWith31 = [1, 3, 5, 7, 8, 10, 12];
+    const daysWith30 = [4, 6, 9, 11];
+    const isLeapYear = (year) => {
+      return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    };
+
+    if (daysWith31.includes(Number(month))) {
+      return day <= 31 && day > 0;
+    } else if (daysWith30.includes(Number(month))) {
+      return day <= 30 && day > 0;
+    } else if (Number(month) === 2) {
+      return isLeapYear(year) ? day <= 29 && day > 0 : day <= 28 && day > 0;
+    }
+    return false;
+  };
+
+  // Calculate the age of the user and set the state
   const calculateAge = () => {
     const birthDate = new Date(year, month - 1, day);
     const ageinms = () =>
@@ -30,9 +50,12 @@ function App() {
     });
   };
 
+  // Calculate the age of the user when the form is submitted
   const handleSubmit = (event) => {
     event.preventDefault();
-    setWarning("");
+    validateDays(day, month, year)
+      ? setWarning("")
+      : setWarning("Invalid date");
     calculateAge();
   };
 
